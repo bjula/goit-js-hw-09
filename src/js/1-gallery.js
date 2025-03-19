@@ -1,3 +1,6 @@
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
+
 const images = [
     {
       preview:
@@ -80,7 +83,7 @@ const images = [
         </a>
     </li>
     `
-  };
+};
 
   function galleriesTetmplate(images) {
     const markup = images.map(galleryTetmplate).join('');
@@ -90,3 +93,25 @@ const images = [
   console.log(galleriesTetmplate(images));
   
   refs.container.insertAdjacentHTML('afterbegin', galleriesTetmplate(images));
+
+  refs.container.addEventListener('mouseover', (e) => {
+    if (e.target.nodeName === 'IMG') {
+      e.target.style.transform = 'scale(1.1)';
+    }
+  });
+  
+  refs.container.addEventListener('mouseout', e => {
+    if (e.target.nodeName === 'IMG') {
+      e.target.style.transform = 'scale(1)';
+    }
+  });
+
+  const lightbox = new SimpleLightbox('.gallery a', {
+	captionsData: 'alt',
+    captionDelay: 250,
+});
+
+lightbox.on('show.simplelightbox', function () {
+    const box = document.querySelector('.sl-wrapper')
+    box.style.background = '#2E2F42';
+});
