@@ -68,7 +68,7 @@ const images = [
   ];
 
   const refs = {
-    container: document.querySelector(".gallery"),
+    container: document.querySelector(".gallery")
   };
 
   function galleryTetmplate(image){
