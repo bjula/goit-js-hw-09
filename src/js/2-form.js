@@ -108,11 +108,13 @@ refs.form.addEventListener('submit', e => {
     e.preventDefault();
     formData.email = e.currentTarget.elements.email.value.trim();
     formData.message = e.currentTarget.elements.message.value.trim();
-    if (formData.email === "" || formData.password === "") {
+    if (formData.email === "" || formData.message === "") {
         return alert("Fill please all fields");
       };
     console.log(formData);
-    e.target.reset();
+    refs.form.reset();
+    formData.email = "";
+    formData.message = "";
     localStorage.removeItem(STORAGE_KEY);
 });
 

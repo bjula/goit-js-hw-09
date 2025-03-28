@@ -71,7 +71,7 @@ const images = [
     container: document.querySelector(".gallery")
   };
 
-  function galleryTetmplate(image){
+  function galleryTemplate(image){
     return `
     <li class="gallery-item">
         <a class="gallery-link" href=${image.original}>
@@ -85,26 +85,26 @@ const images = [
     `
 };
 
-  function galleriesTetmplate(images) {
-    const markup = images.map(galleryTetmplate).join('');
+  function galleriesTemplate(images) {
+    const markup = images.map(galleryTemplate).join('');
     return markup;
   };
   
-  console.log(galleriesTetmplate(images));
+  console.log(galleriesTemplate(images));
   
-  refs.container.insertAdjacentHTML('afterbegin', galleriesTetmplate(images));
+  refs.container.insertAdjacentHTML('afterbegin', galleriesTemplate(images));
 
-  refs.container.addEventListener('mouseover', (e) => {
-    if (e.target.nodeName === 'IMG') {
-      e.target.style.transform = 'scale(1.1)';
-    }
-  });
+  // refs.container.addEventListener('mouseover', (e) => {
+  //   if (e.target.nodeName === 'IMG') {
+  //     e.target.style.transform = 'scale(1.1)';
+  //   }
+  // });
   
-  refs.container.addEventListener('mouseout', e => {
-    if (e.target.nodeName === 'IMG') {
-      e.target.style.transform = 'scale(1)';
-    }
-  });
+  // refs.container.addEventListener('mouseout', e => {
+  //   if (e.target.nodeName === 'IMG') {
+  //     e.target.style.transform = 'scale(1)';
+  //   }
+  // });
 
   const lightbox = new SimpleLightbox('.gallery a', {
 	  captionsData: "alt",
