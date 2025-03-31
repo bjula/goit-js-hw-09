@@ -94,17 +94,17 @@ const images = [
   
   refs.container.insertAdjacentHTML('afterbegin', galleriesTemplate(images));
 
-  // refs.container.addEventListener('mouseover', (e) => {
-  //   if (e.target.nodeName === 'IMG') {
-  //     e.target.style.transform = 'scale(1.1)';
-  //   }
-  // });
+  refs.container.addEventListener('mouseover', (e) => {
+    if (e.target.nodeName === 'IMG') {
+      e.target.style.transform = 'scale(1.1)';
+    }
+  });
   
-  // refs.container.addEventListener('mouseout', e => {
-  //   if (e.target.nodeName === 'IMG') {
-  //     e.target.style.transform = 'scale(1)';
-  //   }
-  // });
+  refs.container.addEventListener('mouseout', e => {
+    if (e.target.nodeName === 'IMG') {
+      e.target.style.transform = 'scale(1)';
+    }
+  });
 
   const lightbox = new SimpleLightbox('.gallery a', {
 	  captionsData: "alt",
